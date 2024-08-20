@@ -1,7 +1,12 @@
 import { getRequestConfig } from "next-intl/server";
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 
-export const supportedLanguages = ["en", "vi"];
+export const supportedLanguages = ["en", "vi"
+  
+
+
+  
+];
 
 export default getRequestConfig(async () => {
   // Provide a static locale, fetch a user setting,
