@@ -4,16 +4,16 @@ import { cookies } from 'next/headers';
 
 export function middleware(request: Request) {
 
-  // Extract the 'lang' query parameter
+  // Extract the 'language' query parameter
   const url = new URL(request.url);
-  const lang = url.searchParams.get('language');
+  const language = url.searchParams.get('language');
 
-  // Check if the current cookie matches the `lang` query parameter
+  // Check if the current cookie matches the `language` query parameter
   const currentLocale = cookies().get('NEXT_LOCALE')?.value;
 
-  if (lang && supportedLanguages.includes(lang) && lang !== currentLocale) {
+  if (language && supportedLanguages.includes(language) && language !== currentLocale) {
     const response = NextResponse.redirect(url);
-    response.cookies.set('NEXT_LOCALE', lang);
+    response.cookies.set('NEXT_LOCALE', language);
 
     return response;
   }
