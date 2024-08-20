@@ -30,7 +30,7 @@ const persistedReducer = persistReducer(
     storage,
     whitelist: ["common"],
   },
-  rootReducer
+  rootReducer,
 );
 
 const store = configureStore({

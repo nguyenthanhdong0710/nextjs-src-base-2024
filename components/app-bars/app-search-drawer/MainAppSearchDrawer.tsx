@@ -75,14 +75,14 @@ function MainAppSearchDrawer() {
                 index % 3 == 2
                   ? `peopleIntelligence-id-${index + 1}`
                   : index % 3 == 1
-                  ? `e8ee4077-3848-46cc-827f-fc2a576725${index + 1}d`
-                  : `company-id-${index + 1}`,
+                    ? `e8ee4077-3848-46cc-827f-fc2a576725${index + 1}d`
+                    : `company-id-${index + 1}`,
               label:
                 index % 3 == 2
                   ? `${keyword} PeopleIntelligence ${keyword} ${index + 1}`
                   : index % 3 == 1
-                  ? `The ASEAN Post ${keyword} ${index + 1} ${keyword}`
-                  : `${keyword} Company ${keyword} ${index + 1} ${keyword}`,
+                    ? `The ASEAN Post ${keyword} ${index + 1} ${keyword}`
+                    : `${keyword} Company ${keyword} ${index + 1} ${keyword}`,
             })),
           });
         }, 1000);

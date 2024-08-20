@@ -6,7 +6,16 @@
     "dev": "next dev -p 3020",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --no-cache --fix --ext .ts,.tsx .",
+    "pretty": "prettier --write .",
+    "prepare": "husky",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run lint",
+      "npm run pretty"
+    ]
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
@@ -27,6 +36,14 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
     "typescript": "^5"
   }
 }

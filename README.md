@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to RAIN-MARKET
 
-## Getting Started
+hello, is me.
 
-First, run the development server:
+## Prepare
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node >= 21.x.x.
+- IDE: VSCode.
+- Required Extension:
+  [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint),
+  [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode),
+  [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker),
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## After clone project
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Run `npm install` to install packages.
+Run `npm run prepare` to install husky and add to git hook.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Main library
 
-## Learn More
+- We using [MUI system](https://mui.com/system/getting-started/) to build web component.
+- We using [Tailwind](https://tailwindcss.com/) as a CSS framework.
+- We using [next-auth](https://next-auth.js.org/) to handle website Authenticator.
+- We using [next-intl](https://next-intl-docs.vercel.app/) to handle multiple languages and routing.
+- We using [SWR](https://swr.vercel.app/) to handle API call.
+- We using [react-hook-form](https://react-hook-form.com/) to handle form control.
+- We using [react-hook-form](https://react-hook-form.com/) to handle form control.
+- We using [Yup](https://www.npmjs.com/package/yup) to handle form validate.
+- We using [redux](https://redux.js.org/) to handle some global state.
 
-To learn more about Next.js, take a look at the following resources:
+## Things to note
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Almost icon can found in [Material Icons](https://mui.com/material-ui/material-icons/).
+- For styling components, using [sxProps](https://mui.com/system/getting-started/the-sx-prop/).
+- Update theme color in `lightPalette.ts` or `lightPalette.ts` or create your own.
+- Update component style in `createAppTheme.tsx`.
+- Try to setup custom hook instead of repeat useState and useEffect.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Do not do this
 
-## Deploy on Vercel
+- DO NOT using fixed text in html. Use translation in next-intl. For example we use `en.ts`.
+- DO NOT using color in Tailwind, for change theme perfectly, we need use color form MUI only. Check `createAppTheme.tsx`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Remember this
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- REMEMBER that use Link, Router, Pathname from `next-intl` no need to include locale, but from `next/navigator` does.
+- REMEMBER that always using Link instead of Button and onClick event calling router hook.
+
+## Good to know
+
+Breakpoint: (both config in `tailwind.config.ts` and `createAppTheme.tsx`)
+
+- xs (extra-small) = 0px
+- sm (small) = 600px
+- md (medium) = 900px
+- lg (large) = 1200px
+- xl (extra-large) = 1536px
+
+Typography
+
+- 12px <=> variant="caption"
+- 14px <=> variant="body2"
+- 16px <=> variant="body1"
+- 20px <=> variant="h6"
+- 24px <=> variant="h5"
+- 30px <=> variant="h4"
+
+---
