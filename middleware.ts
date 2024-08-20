@@ -8,7 +8,7 @@ export function middleware(request: Request) {
   const language = url.searchParams.get("language");
 
   // Check if the current cookie matches the `language` query parameter
-  const currentLocale = cookies().get('NEXT_LOCALE')?.value;
+  const currentLocale = cookies().get("NEXT_LOCALE")?.value;
 
   if (
     language &&
@@ -17,7 +17,6 @@ export function middleware(request: Request) {
   ) {
     const response = NextResponse.redirect(url);
     response.cookies.set("NEXT_LOCALE", language);
-
     return response;
   }
 
