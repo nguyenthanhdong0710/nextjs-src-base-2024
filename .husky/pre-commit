@@ -1,1 +1,1 @@
-npx.cmd run pre-commit
+npm run pre-commit
