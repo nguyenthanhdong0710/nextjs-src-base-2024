@@ -3,8 +3,8 @@ import { createTheme } from "@mui/material/styles";
 import darkPalette from "./darkPalette";
 import lightPalette from "./lightPalette";
 // import { CheckboxIcon, CheckedCheckboxIcon } from "@/components/Icons";
-// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-// import CloseIcon from "@mui/icons-material/Close";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CloseIcon from "@mui/icons-material/Close";
 
 declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
@@ -331,9 +331,9 @@ const createAppTheme = (mode: PaletteMode) => {
         },
       },
       MuiAutocomplete: {
-        // defaultProps: {
-        //   popupIcon: <ExpandMoreIcon sx={{ color: palette.blue["03"] }} />,
-        // },
+        defaultProps: {
+          popupIcon: <ExpandMoreIcon sx={{ color: palette.blue["03"] }} />,
+        },
         styleOverrides: {
           root: {
             "& .MuiOutlinedInput-root.MuiInputBase-sizeSmall": {
@@ -357,9 +357,9 @@ const createAppTheme = (mode: PaletteMode) => {
         },
       },
       MuiSelect: {
-        // defaultProps: {
-        //   IconComponent: ExpandMoreIcon,
-        // },
+        defaultProps: {
+          IconComponent: ExpandMoreIcon,
+        },
         styleOverrides: {
           root: {
             "& .MuiInputBase-inputSizeSmall": {
@@ -395,9 +395,9 @@ const createAppTheme = (mode: PaletteMode) => {
         },
       },
       MuiChip: {
-        // defaultProps: {
-        //   deleteIcon: <CloseIcon />,
-        // },
+        defaultProps: {
+          deleteIcon: <CloseIcon />,
+        },
         styleOverrides: {
           root: {
             borderRadius: "4px",

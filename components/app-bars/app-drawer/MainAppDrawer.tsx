@@ -4,6 +4,7 @@ import Drawer from "@mui/material/Drawer";
 import DrawerContent from "./DrawerContent";
 import { useAppDispatch, useAppSelector } from "@/redux";
 import { closeSidebar } from "@/redux/sidebarReducer";
+import AppSetting from "@/config/app-setting";
 
 function MainAppDrawer() {
   const dispatch = useAppDispatch();
@@ -26,14 +27,19 @@ function MainAppDrawer() {
         sx: { backgroundColor: "gray.08" },
       }}
       sx={{
+        top: `${AppSetting.appBarHeight}px`,
+        height: `calc(100% - ${AppSetting.appBarHeight}px)`,
+        "& .MuiBackdrop-root": {
+          top: `${AppSetting.appBarHeight}px`,
+        },
         "& .MuiDrawer-paper": {
           boxSizing: "border-box",
           top: "auto",
           bottom: 0,
           width: "80%",
-          height: "100%",
+          maxWidth: 300,
+          height: `calc(100% - ${AppSetting.appBarHeight}px)`,
         },
-        display: { xs: "block", sm: "none" },
       }}
     >
       <DrawerContent />

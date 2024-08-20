@@ -15,6 +15,7 @@ import { Add, ArrowBack, Search } from "@mui/icons-material";
 // import { useTranslations } from "use-intl";
 import { Fragment, useEffect, useRef, useState } from "react";
 import useDebounce from "@/hooks/useDebounce";
+import AppSetting from "@/config/app-setting";
 
 type SearchOptionType = {
   id: string;
@@ -108,7 +109,7 @@ function MainAppSearchDrawer() {
   return (
     <Drawer
       variant="temporary"
-      anchor="bottom"
+      anchor="top"
       open={open}
       onClose={handleCloseSidebarSearch}
       ModalProps={{
@@ -119,28 +120,30 @@ function MainAppSearchDrawer() {
         sx: { backgroundColor: "gray.10" },
       }}
       sx={{
+        top: `${AppSetting.appBarHeight + AppSetting.tabHeight}px`,
+        height: 350,
+        "& .MuiBackdrop-root": {
+          top: `${AppSetting.appBarHeight + AppSetting.tabHeight}px`,
+        },
         "& .MuiDrawer-paper": {
           boxSizing: "border-box",
           top: "auto",
-          bottom: 0,
           width: "100%",
-          height: "100%",
+          height: 350,
         },
-        display: { xs: "block", sm: "none" },
       }}
     >
-      <div>
+      <Box>
         <Box
           sx={{
             backgroundColor: "gray.09",
             borderBottom: `1px solid ${palette.gray["07"]}`,
+            px: 5,
+            py: 3,
           }}
-          className="flex gap-1 pl-1 pr-4 py-4"
         >
-          <IconButton className="sm:hidden" onClick={handleCloseSidebarSearch}>
-            <ArrowBack />
-          </IconButton>
           <TextField
+            fullWidth
             variant="outlined"
             placeholder={t("navbar.searchPlaceHolder")}
             type="text"
@@ -162,40 +165,18 @@ function MainAppSearchDrawer() {
             className="w-full"
           />
         </Box>
-        {/* {searchOptions.loading ? (
-          <ComponentLoader />
-        ) : (
-          <div>
-            {[
-              ...(searchOptions.options.length
-                ? searchOptions.options
-                : latestSearchHistories),
-            ].map((option) => (
-              <Fragment key={option.id}>
-                <SearchItem
-                  option={option}
-                  searchDebounce={searchDebounce}
-                  setSelectedOption={setSelectedOption}
-                  onSearchItemClick={handleCloseSidebarSearch}
-                />
-              </Fragment>
-            ))}
-          </div>
-        )} */}
-        <div className="flex w-full gap-3 p-4">
-          <Button variant="outlined" color="primary" className="w-full">
-            {t("navbar.searchHistory")}
-          </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            className="w-full flex items-center"
-          >
-            {t("navbar.watchListSearch")}
-            <Add color="primary" className="ml-2 h-5 w-5" />
-          </Button>
-        </div>
-      </div>
+        <Box
+          sx={{
+            px: 5,
+            py: 3,
+          }}
+        >
+          <div>data</div>
+          <div>data</div>
+          <div>data</div>
+          <div>data</div>
+        </Box>
+      </Box>
     </Drawer>
   );
 }

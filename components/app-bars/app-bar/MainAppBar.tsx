@@ -13,17 +13,24 @@ import {
 } from "@mui/icons-material";
 // import { useTranslations } from "next-intl";
 import { useAppDispatch, useAppSelector } from "@/redux";
-import { toggleSidebar, toggleSidebarSearch } from "@/redux/sidebarReducer";
+import {
+  closeSidebar,
+  closeSidebarSearch,
+  toggleSidebar,
+  toggleSidebarSearch,
+} from "@/redux/sidebarReducer";
 import { useRouter, useSearchParams } from "next/navigation";
 // import SearchBar from "./_component/SearchBar";
 // import MainMenu from "./_component/MainMenu";
 import clsx from "clsx";
+import AppSetting from "@/config/app-setting";
 
 export default function MainAppBar() {
   // const t = useTranslations();
   const t = (str: string) => str;
   const dispatch = useAppDispatch();
   const { open } = useAppSelector((s) => s.sidebar);
+  const { open: searchOpen } = useAppSelector((s) => s.sidebar.search);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -31,6 +38,16 @@ export default function MainAppBar() {
 
   const handleToggleSidebar = () => {
     dispatch(toggleSidebar());
+  };
+
+  const handleClose = () => {
+    if (open) {
+      dispatch(closeSidebar());
+    }
+
+    if (searchOpen) {
+      dispatch(closeSidebarSearch());
+    }
   };
 
   const handleToggleSidebarSearch = () => {
@@ -63,79 +80,53 @@ export default function MainAppBar() {
         boxShadow: "none",
         backgroundColor: "transparent",
       }}
-      className="sm:mb-[67px]"
+      onClick={handleClose}
     >
       <Box
-        className="flex justify-between relative z-10"
         sx={{
+          position: "relative",
+          zIndex: 10,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
           py: 1.5,
           px: 3,
           borderBottom: 1,
           borderColor: "gray.07",
           backgroundColor: "gray.09",
+          height: AppSetting.appBarHeight,
         }}
       >
-        <Box className="basis-3/4 flex items-center gap-3">
-          {/* <Link href={{ pathname: "/home" }} replace> */}
-          <Box component="img" src="/images/text_logo.svg" alt="logo" />
-          {/* </Link> */}
-          {/* <SearchBar /> */}
-          <Button
-            variant="outlined"
-            color="primary"
-            className="hidden sm:block"
-          >
-            {t("navbar.searchHistory")}
-          </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            className="hidden sm:flex items-center"
-          >
-            {t("navbar.watchListSearch")}
-            <Add color="primary" className="ml-2 h-5 w-5" />
-          </Button>
-        </Box>
-        <IconButton className="sm:hidden" onClick={handleToggleSidebarSearch}>
-          <Search color="primary" />
-        </IconButton>
-
-        <Box className="flex items-center gap-5">
-          <Button
-            variant="contained"
-            color="primary"
-            className="hidden sm:block"
-          >
-            {t("navbar.viewPlan")}
-          </Button>
-        </Box>
-        <IconButton className="sm:hidden" onClick={handleToggleSidebar}>
-          {open ? <MenuOpen></MenuOpen> : <Menu></Menu>}
-        </IconButton>
+        <Button onClick={handleToggleSidebar}>Hamburger</Button>
+        <div>C/F</div>
+        <div>Logo</div>
+        <Button onClick={handleToggleSidebarSearch}>search-input</Button>
+        <div>favorite</div>
       </Box>
-      <div
-        className={clsx("fixed w-full transition-[top] duration-300 z-0", {
-          "top-[67px]": !isScrollUp,
-          "top-0": isScrollUp,
-        })}
+      <Box
+        sx={{
+          position: "sticky",
+          top: 100,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          py: 1.5,
+          px: 3,
+          borderBottom: 1,
+          borderColor: "gray.07",
+          backgroundColor: "gray.09",
+          height: AppSetting.tabHeight,
+        }}
       >
-        <Box
-          sx={{
-            py: 1,
-            px: 3,
-            borderBottom: 1,
-            borderColor: "gray.07",
-            backgroundColor: "gray.09",
-          }}
-          className="hidden sm:flex justify-between items-center"
-        >
-          {/* <MainMenu /> */}
-          <Button variant="text" color="primary">
-            <DashboardOutlined className="h-5 w-5 mr-2" />
-            {t("navbar.myDashboard")}
-          </Button>
-        </Box>
-      </div>
+        <div>Now</div>
+        <div> Hourly</div>
+        <div>Daily</div>
+        <div>Weekend</div>
+        <div>7 days</div>
+        <div>Live Satellite</div>
+        <div>History</div>
+        <div>Long Range</div>
+      </Box>
     </AppBar>
   );
 }

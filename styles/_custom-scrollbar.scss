@@ -1,0 +1,109 @@
+$thumb-bg-color: #4e5966;
+$thumb-bg-hover-color: #bcc3cb;
+$track-bg-color: rgba(0, 0, 0, 0);
+
+$scrollbar-width-mb: 4px;
+$scrollbar-height-mb: 4px;
+$scrollbar-width-pc: 8px;
+$scrollbar-height-pc: 8px;
+
+$scrollbar-border-radius: 9px;
+$scrollbar-border-width-mb: 0px;
+$scrollbar-border-width-pc: 0px;
+
+::-webkit-scrollbar {
+  width: $scrollbar-width-mb;
+  height: $scrollbar-height-mb;
+}
+
+@media (min-width: 600px) {
+  ::-webkit-scrollbar {
+    width: $scrollbar-width-pc;
+    height: $scrollbar-height-pc;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background-color: $track-bg-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $thumb-bg-color;
+  border: $scrollbar-border-width-mb solid transparent;
+  border-radius: $scrollbar-border-radius;
+  background-clip: content-box;
+}
+
+@media (min-width: 600px) {
+  ::-webkit-scrollbar-thumb {
+    border: $scrollbar-border-width-pc solid transparent;
+  }
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $thumb-bg-hover-color;
+}
+
+.pc-scrollbar::-webkit-scrollbar {
+  width: $scrollbar-width-pc;
+  height: $scrollbar-height-pc;
+}
+
+.pc-scrollbar::-webkit-scrollbar-track {
+  background-color: $track-bg-color;
+}
+
+.pc-scrollbar::-webkit-scrollbar-thumb {
+  background-color: $thumb-bg-color;
+  border: $scrollbar-border-width-pc solid transparent;
+  border-radius: $scrollbar-border-radius;
+  background-clip: content-box;
+}
+
+.pc-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: $thumb-bg-color;
+}
+
+.mobile-scrollbar::-webkit-scrollbar {
+  width: $scrollbar-width-mb;
+  height: $scrollbar-height-mb;
+}
+
+.mobile-scrollbar::-webkit-scrollbar-track {
+  background-color: $track-bg-color;
+}
+
+.mobile-scrollbar::-webkit-scrollbar-thumb {
+  background-color: $thumb-bg-color;
+  border: $scrollbar-border-width-mb solid transparent;
+  border-radius: $scrollbar-border-radius;
+  background-clip: content-box;
+}
+
+.mobile-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: $thumb-bg-color;
+}
+
+// ==================================
+// MuiMultiSectionDigitalClockSection
+// ==================================
+
+.MuiMultiSectionDigitalClockSection-root::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.MuiMultiSectionDigitalClockSection-root::-webkit-scrollbar-track {
+  background-color: #00000000;
+}
+
+.MuiMultiSectionDigitalClockSection-root::-webkit-scrollbar-thumb {
+  background-color: $thumb-bg-color;
+  border: 0;
+  border-radius: $scrollbar-border-radius;
+  background-clip: content-box;
+}
+
+.MuiMultiSectionDigitalClockSection-root::-webkit-scrollbar-thumb:hover {
+  background-color: $thumb-bg-color;
+}

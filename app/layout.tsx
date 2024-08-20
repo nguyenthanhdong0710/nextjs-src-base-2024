@@ -7,7 +7,7 @@ import StoreProvider from "@/redux/StoreProvider";
 import { getLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 
-import "./globals.css";
+import "@/styles/index.scss";
 
 const manrope = Manrope({ subsets: ["latin"] });
 

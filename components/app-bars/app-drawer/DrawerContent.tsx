@@ -25,7 +25,17 @@ function DrawerContent({ sx }: DrawerContentProps) {
       }}
     >
       <List sx={{ py: 2 }}>
-        <Box className="flex justify-between items-center gap-5 px-3 py-2 mb-3">
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: 5,
+            px: 3,
+            py: 2,
+            mb: 3,
+          }}
+        >
           <Button variant="contained" color="primary">
             {t("navbar.viewPlan")}
           </Button>

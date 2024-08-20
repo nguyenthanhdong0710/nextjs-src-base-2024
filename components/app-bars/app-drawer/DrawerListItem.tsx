@@ -43,23 +43,33 @@ function DrawerListItem({ data }: DrawerListItemProps) {
         <Button
           variant="text"
           onClick={handleClick}
-          className="flex justify-between items-center gap-[6px] w-full py-4"
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "6px",
+            py: 4,
+            width: 1,
+          }}
         >
-          <div className="flex items-center gap-[6px] w-full">
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+              width: 1,
+            }}
+          >
             <Typography
               variant="body2"
               textAlign="center"
-              sx={{ color: "blue.01" }}
-              className="text-[14px] pl-4"
+              sx={{ color: "blue.01", pl: 4 }}
             >
               {t(data.label as any)}
             </Typography>
-          </div>
+          </Box>
           {!!data.children?.length && (
-            <ExpandMore
-              color="primary"
-              className={clsx({ "rotate-180": checked })}
-            />
+            <ExpandMore color="primary" sx={{ rotate: checked ? 0 : 180 }} />
           )}
         </Button>
         <div>
@@ -70,13 +80,18 @@ function DrawerListItem({ data }: DrawerListItemProps) {
                 onClick={() => {
                   handleOpenTab(child.path);
                 }}
-                className="flex justify-between items-center gap-[6px] w-full"
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: "6px",
+                  width: 1,
+                }}
               >
                 <Typography
                   variant="body2"
                   textAlign="center"
-                  sx={{ color: "gray.02" }}
-                  className="text-[14px] pl-4"
+                  sx={{ color: "gray.02", pl: 4 }}
                 >
                   {t(child.label as any)}
                 </Typography>
