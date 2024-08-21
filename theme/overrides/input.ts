@@ -4,80 +4,80 @@ import { alpha } from "@mui/material";
 
 const input = () => {
   return {
-    MuiInputLabel: {
-      styleOverrides: {
-        root: ({ theme }: OwnerStateThemeType) => ({
-          color: theme.palette.primary.main,
-        }),
-      },
-    },
-    MuiInput: {
-      styleOverrides: {
-        root: ({ theme }: OwnerStateThemeType) => ({
-          lineHeight: "1.5rem",
-          "&:before": {
-            borderBottom: `1px solid rgba(${theme.palette.primary.main}, 0.22)`,
-          },
-          "&:hover:not(.Mui-disabled):before": {
-            borderBottom: `1px solid rgba(${theme.palette.primary.main}, 0.32)`,
-          },
-          "&.Mui-disabled:before": {
-            borderBottomStyle: "solid",
-          },
-        }),
-      },
-    },
-    MuiFilledInput: {
-      styleOverrides: {
-        root: ({ theme }: OwnerStateThemeType) => ({
-          borderTopLeftRadius: theme.shape.borderRadius,
-          borderTopRightRadius: theme.shape.borderRadius,
-          backgroundColor: `rgba(${theme.palette.primary.main}, 0.05)`,
-          "&:hover:not(.Mui-disabled)": {
-            backgroundColor: `rgba(${theme.palette.primary.main}, 0.08)`,
-          },
-          "&:before": {
-            borderBottom: `1px solid rgba(${theme.palette.primary.main}, 0.22)`,
-          },
-          "&:hover:not(.Mui-disabled):before": {
-            borderBottom: `1px solid rgba(${theme.palette.primary.main}, 0.32)`,
-          },
-          "&.Mui-disabled": {
-            backgroundColor: `rgba(${theme.palette.primary.main}, 0.05)`,
-            "&:before": {
-              borderBottomStyle: "solid",
-            },
-          },
-        }),
-      },
-    },
+    // MuiInputLabel: {
+    //   styleOverrides: {
+    //     root: ({ theme }: OwnerStateThemeType) => ({
+    //       color: theme.palette.primary.main,
+    //     }),
+    //   },
+    // },
     MuiOutlinedInput: {
       styleOverrides: {
         root: ({ theme }: OwnerStateThemeType) => ({
-          borderRadius: theme.shape.borderRadius,
-          color: theme.palette.primary.main,
-          backgroundColor: "white", //theme.palette.white,
+          fontFamily: "inherit",
+          // borderRadius: theme.shape.borderRadius,
+          // color: theme.palette.primary.main,
           "&.Mui-error": {
-            color: theme.palette.error.main,
+            // color: theme.palette.error.main,
+            backgroundColor: alpha(theme.palette.error.main, 0.1),
           },
           "&:not(.Mui-focused):not(.Mui-disabled):not(.Mui-error) .MuiOutlinedInput-notchedOutline":
             {
-              borderColor: alpha(theme.palette.primary.main, 0.32),
+              borderColor: alpha(theme.palette.white, 0.2),
             },
           "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-            borderColor: alpha(theme.palette.primary.main, 0.32),
+            borderColor: alpha(theme.palette.white, 0.12),
           },
           "&.Mui-error .MuiOutlinedInput-notchedOutline": {
             borderColor: theme.palette.error.main,
           },
+          " .MuiSvgIcon-root": {
+            color: theme.palette.icon,
+          },
+          "&.MuiInputBase-sizeLarge": {
+            borderRadius: 8,
+            input: {
+              fontSize: "18px",
+              lineHeight: "24.59px",
+              padding: theme.spacing(3.25, 4),
+              marginBottom: theme.spacing(0.5),
+            },
+            " .MuiSvgIcon-root": {
+              width: "22px",
+              height: "22px",
+            },
+          },
+          "&:not(.MuiInputBase-sizeSmall):not(.MuiInputBase-sizeLarge)": {
+            borderRadius: 6,
+            input: {
+              fontSize: "16px",
+              lineHeight: "21.86px",
+              padding: theme.spacing(3, 3.5),
+              marginBottom: theme.spacing(0.5),
+            },
+            " .MuiSvgIcon-root": {
+              width: "19px",
+              height: "19px",
+            },
+          },
+          "&.MuiInputBase-sizeSmall": {
+            borderRadius: 4,
+            input: {
+              fontSize: "14px",
+              lineHeight: "19.12px",
+              padding: theme.spacing(2.5, 3),
+              marginBottom: theme.spacing(0.5),
+            },
+            " .MuiSvgIcon-root": {
+              width: "17px",
+              height: "17px",
+            },
+          },
         }),
-        input: {
+        input: ({ theme }: OwnerStateThemeType) => ({
           "&.Mui-disabled": {
             cursor: "not-allowed",
             pointerEvents: "all !important",
-          },
-          "&.MuiInputBase-inputSizeSmall": {
-            padding: "14px 16px",
           },
           "&.MuiInputBase-inputAdornedStart": {
             paddingLeft: "8px",
@@ -88,19 +88,19 @@ const input = () => {
 
           /* Chrome, Safari, Edge, Opera */
           "&::-webkit-outer-spin-button": {
-            "-webkit-appearance": "none",
+            WebkitAppearance: "none",
             margin: 0,
           },
           "&::-webkit-inner-spin-button": {
-            "-webkit-appearance": "none",
+            WebkitAppearance: "none",
             margin: 0,
           },
 
           /* Firefox */
           "&[type=number]": {
-            "-moz-appearance": "textfield",
+            MozAppearance: "textfield",
           },
-        },
+        }),
       },
     },
   };

@@ -10,6 +10,8 @@ const DefaultPalette = (mode: Palette["mode"]): Palette => {
 
   return {
     mode: mode,
+    white: "#FFF",
+    black: "#000",
     green: {
       hoverPressed: "#72B01F",
       main: "#9CCA3B",
@@ -38,7 +40,7 @@ const DefaultPalette = (mode: Palette["mode"]): Palette => {
       "20": "#BDDCFF",
       "30": "#EEF6FF",
     },
-    icon: "#6F82B4",
+    icon: "#9CACD6",
     outline: "#415792",
     background: {
       paper: "#000F35",

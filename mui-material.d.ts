@@ -45,6 +45,8 @@ interface ColorPalette {
 
 declare module "@mui/material/styles" {
   interface Palette {
+    white: string;
+    black: string;
     green: ColorPalette;
     red: ColorPalette;
     waring: ColorPalette;
@@ -54,6 +56,8 @@ declare module "@mui/material/styles" {
     background: string;
   }
   interface PaletteOptions {
+    white: string;
+    black: string;
     green: ColorPalette;
     red: ColorPalette;
     waring: ColorPalette;
@@ -102,6 +106,12 @@ declare module "@mui/material/Typography" {
     "12/Medium": boolean;
     "12/Regular": boolean;
     "12/Light": boolean;
+  }
+}
+
+declare module "@mui/material/InputBase" {
+  interface InputBasePropsSizeOverrides {
+    large: true;
   }
 }
 
