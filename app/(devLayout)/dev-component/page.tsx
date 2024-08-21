@@ -1333,6 +1333,7 @@ const DevComponents = () => {
         >
           Dropdown
         </Typography>
+
         <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
           Default
         </Typography>
@@ -1378,6 +1379,81 @@ const DevComponents = () => {
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          No border
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Select
+            label=""
+            value=""
+            size="large"
+            sx={{ " fieldset": { border: "none" } }}
+            renderValue={
+              selectValue
+                ? undefined
+                : () => (
+                    <Typography sx={{ color: "text.secondary" }}>
+                      Please select
+                    </Typography>
+                  )
+            }
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select
+            label=""
+            value=""
+            size="medium"
+            sx={{ " fieldset": { border: "none" } }}
+            renderValue={
+              selectValue
+                ? undefined
+                : () => (
+                    <Typography sx={{ color: "text.secondary" }}>
+                      Please select
+                    </Typography>
+                  )
+            }
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select
+            label=""
+            value=""
+            size="small"
+            sx={{ " fieldset": { border: "none" } }}
+            renderValue={
+              selectValue
+                ? undefined
+                : () => (
+                    <Typography sx={{ color: "text.secondary" }}>
+                      Please select
+                    </Typography>
+                  )
+            }
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </Box>
+
         <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
           Default / Disabled
         </Typography>

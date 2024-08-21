@@ -15,8 +15,13 @@ const select = () => {
           "&.MuiInputBase-sizeLarge": {
             " .MuiSelect-select": {
               borderRadius: 8,
-              paddingRight: `${theme.spacing(4)} !important`,
+              paddingRight: `${theme.spacing(11)} !important`,
               padding: theme.spacing(3.5, 4),
+              fontSize: "18px",
+              lineHeight: "24.59px",
+              " .MuiTypography-root": {
+                fontSize: "inherit",
+              },
             },
             "& svg": {
               right: "15px",
@@ -27,8 +32,13 @@ const select = () => {
             borderRadius: 6,
             " .MuiSelect-select": {
               borderRadius: 8,
-              paddingRight: `${theme.spacing(3.5)} !important`,
+              paddingRight: `${theme.spacing(10)} !important`,
               padding: theme.spacing(3, 3.5),
+              fontSize: "16px",
+              lineHeight: "21.86px",
+              " .MuiTypography-root": {
+                fontSize: "inherit",
+              },
             },
             "& svg": {
               right: "14px",
@@ -39,8 +49,13 @@ const select = () => {
             borderRadius: 4,
             " .MuiSelect-select": {
               borderRadius: 8,
-              paddingRight: `${theme.spacing(3)} !important`,
+              paddingRight: `${theme.spacing(6)} !important`,
               padding: theme.spacing(2.25, 3),
+              fontSize: "14px",
+              lineHeight: "19.12px",
+              " .MuiTypography-root": {
+                fontSize: "inherit",
+              },
             },
             "& svg": {
               right: "11px",
