@@ -24,7 +24,11 @@ interface Props {
 
 const ThemeComponent = ({ children }: Props) => {
   // ** Pass merged ThemeOptions (of core and user) to createTheme function
-  let theme = createTheme(themeOptions("light"));
+  let theme = createTheme(
+    themeOptions(
+      localStorage.getItem("themeMode") === "dark" ? "dark" : "light",
+    ),
+  );
 
   // ** Set responsive font sizes to true
   theme = responsiveFontSizes(theme);

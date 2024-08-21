@@ -4,9 +4,9 @@ import { alpha, Palette } from "@mui/material";
 const DefaultPalette = (mode: Palette["mode"]): Palette => {
   // ** Vars
   const whiteColor = "#FFF";
-  const lightColor = "76, 78, 100";
-  const darkColor = "234, 234, 255";
-  const mainColor = mode === "light" ? lightColor : darkColor;
+  const darkColor = "#000";
+  // const lightColor = "76, 78, 100";
+  // const mainColor = mode === "light" ? lightColor : darkColor;
 
   return {
     mode: mode,
@@ -41,10 +41,10 @@ const DefaultPalette = (mode: Palette["mode"]): Palette => {
       "30": "#EEF6FF",
     },
     icon: "#9CACD6",
-    outline: "#415792",
+    outline: mode === "light" ? "#C7D1EA" : "#415792",
     background: {
-      paper: "#000F35",
-      default: "#000F35",
+      paper: mode == "light" ? "#FFFFFF" : "#000F35",
+      default: mode == "light" ? "#FFFFFF" : "#000F35",
     },
 
     // ** overrides
@@ -80,15 +80,15 @@ const DefaultPalette = (mode: Palette["mode"]): Palette => {
       light: "#525E7B",
       main: "#3F4964",
       dark: "#525E7B",
-      contrastText: darkColor,
+      contrastText: whiteColor,
     },
 
     text: {
-      primary: alpha(whiteColor, 0.87),
-      secondary: alpha(whiteColor, 0.6),
-      disabled: alpha(whiteColor, 0.38),
+      primary: alpha(mode === "light" ? darkColor : whiteColor, 0.87),
+      secondary: alpha(mode === "light" ? darkColor : whiteColor, 0.6),
+      disabled: alpha(mode === "light" ? darkColor : whiteColor, 0.38),
     },
-    divider: "#415792", // outline
+    divider: mode === "light" ? "#C7D1EA" : "#415792", // outline
     action: {
       // active: `rgba(${mainColor}, 0.54)`,
       // hover: `rgba(${mainColor}, 0.85)`,

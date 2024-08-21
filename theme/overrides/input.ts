@@ -23,7 +23,7 @@ const input = () => {
           },
           "&:not(.Mui-focused):not(.Mui-disabled):not(.Mui-error) .MuiOutlinedInput-notchedOutline":
             {
-              borderColor: alpha(theme.palette.white, 0.2),
+              borderColor: theme.palette.outline,
             },
           "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
             borderColor: alpha(theme.palette.white, 0.12),

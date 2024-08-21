@@ -20,14 +20,27 @@ const Button = () => {
           boxShadow: theme.shadows[0],
         }),
         outlined: ({ theme }: OwnerStateThemeType) => ({
-          "&.MuiButton-outlinedPrimary:hover:not(.Mui-disabled)": {
-            backgroundColor: alpha(theme.palette.primary.main, 0.1),
+          "&.Mui-disabled": {
+            ...(theme.palette.mode == "light" && {
+              color: alpha(theme.palette.black, 0.38),
+              borderColor: alpha(theme.palette.black, 0.28),
+            }),
+            "&:hover": {
+              backgroundColor: "inherit",
+            },
           },
           "&.MuiButton-outlinedSecondary:not(.Mui-disabled)": {
-            color: "white",
+            color:
+              theme.palette.mode == "light"
+                ? theme.palette.text.primary
+                : theme.palette.white,
             "&:hover": {
-              backgroundColor: theme.palette.secondary.main,
+              color: theme.palette.white,
+              backgroundColor: theme.palette.secondary.dark,
             },
+          },
+          "&.MuiButton-outlinedPrimary:hover:not(.Mui-disabled)": {
+            backgroundColor: alpha(theme.palette.primary.main, 0.1),
           },
           "&.MuiButton-outlinedSuccess:hover:not(.Mui-disabled)": {
             backgroundColor: alpha(theme.palette.success.main, 0.1),
@@ -43,14 +56,27 @@ const Button = () => {
           },
         }),
         text: ({ theme }: OwnerStateThemeType) => ({
-          "&.MuiButton-textPrimary:hover:not(.Mui-disabled)": {
-            backgroundColor: alpha(theme.palette.primary.main, 0.1),
+          "&.Mui-disabled": {
+            ...(theme.palette.mode == "light" && {
+              color: alpha(theme.palette.black, 0.38),
+              borderColor: alpha(theme.palette.black, 0.28),
+            }),
+            "&:hover": {
+              backgroundColor: "inherit",
+            },
           },
           "&.MuiButton-textSecondary:not(.Mui-disabled)": {
-            color: "white",
+            color:
+              theme.palette.mode == "light"
+                ? theme.palette.text.primary
+                : theme.palette.white,
             "&:hover": {
-              backgroundColor: theme.palette.secondary.main,
+              color: theme.palette.white,
+              backgroundColor: theme.palette.secondary.dark,
             },
+          },
+          "&.MuiButton-textPrimary:hover:not(.Mui-disabled)": {
+            backgroundColor: alpha(theme.palette.primary.main, 0.1),
           },
           "&.MuiButton-textSuccess:hover:not(.Mui-disabled)": {
             backgroundColor: alpha(theme.palette.success.main, 0.1),
