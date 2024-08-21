@@ -16,24 +16,37 @@ const input = () => {
         root: ({ theme }: OwnerStateThemeType) => ({
           fontFamily: "inherit",
           // borderRadius: theme.shape.borderRadius,
-          // color: theme.palette.primary.main,
           "&.Mui-error": {
             // color: theme.palette.error.main,
             backgroundColor: alpha(theme.palette.error.main, 0.1),
+
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: theme.palette.error.main,
+            },
+            " .MuiSvgIcon-root": {
+              color: theme.palette.icon,
+            },
           },
-          "&:not(.Mui-focused):not(.Mui-disabled):not(.Mui-error) .MuiOutlinedInput-notchedOutline":
-            {
+          "&.Mui-disabled": {
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor:
+                theme.palette.mode === "light"
+                  ? alpha(theme.palette.black, 0.12)
+                  : alpha(theme.palette.white, 0.12),
+            },
+            " .MuiSvgIcon-root": {
+              color: alpha(theme.palette.icon, 0.38),
+            },
+          },
+          "&:not(.Mui-disabled):not(.Mui-error)": {
+            "&:not(.Mui-focused) .MuiOutlinedInput-notchedOutline": {
               borderColor: theme.palette.outline,
             },
-          "&.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-            borderColor: alpha(theme.palette.white, 0.12),
+            " .MuiSvgIcon-root": {
+              color: theme.palette.icon,
+            },
           },
-          "&.Mui-error .MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.palette.error.main,
-          },
-          " .MuiSvgIcon-root": {
-            color: theme.palette.icon,
-          },
+
           "&.MuiInputBase-sizeLarge": {
             borderRadius: 8,
             input: {

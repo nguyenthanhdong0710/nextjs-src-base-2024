@@ -6,6 +6,7 @@ import {
   Button,
   FormControl,
   FormHelperText,
+  InputLabel,
   MenuItem,
   OutlinedInput,
   Paper,
@@ -954,7 +955,7 @@ const DevComponents = () => {
           Input/Outlined
         </Typography>
         <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
-          Normal
+          Default
         </Typography>
         <Box
           sx={{
@@ -974,7 +975,27 @@ const DevComponents = () => {
         </Box>
 
         <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
-          Normal / Has Value
+          Default / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <OutlinedInput disabled placeholder="placeholder" size="large" />
+          <OutlinedInput disabled placeholder="placeholder" size="medium" />
+          <OutlinedInput disabled placeholder="placeholder" size="small" />
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Default / Has Value
         </Typography>
         <Box
           sx={{
@@ -994,7 +1015,27 @@ const DevComponents = () => {
         </Box>
 
         <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
-          Normal / Has Icon Prefix
+          Default / Has Value / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <OutlinedInput disabled value="Value" size="large" />
+          <OutlinedInput disabled value="Value" size="medium" />
+          <OutlinedInput disabled value="Value" size="small" />
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Default / Has Icon Prefix
         </Typography>
         <Box
           sx={{
@@ -1026,7 +1067,7 @@ const DevComponents = () => {
         </Box>
 
         <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
-          Normal / Has Icon Suffix
+          Default / Has Icon Suffix
         </Typography>
         <Box
           sx={{
@@ -1059,7 +1100,7 @@ const DevComponents = () => {
         </Box>
 
         <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
-          Normal / Has Icon
+          Default / Has Icon
         </Typography>
         <Box
           sx={{
@@ -1087,6 +1128,45 @@ const DevComponents = () => {
             endAdornment={<RemoveRedEye />}
           />
           <OutlinedInput
+            value="Value"
+            size="small"
+            startAdornment={<LockOpen />}
+            endAdornment={<RemoveRedEye />}
+          />
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Default / Has Icon / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <OutlinedInput
+            disabled
+            value="Value"
+            size="large"
+            startAdornment={<LockOpen />}
+            endAdornment={<RemoveRedEye />}
+          />
+          <OutlinedInput
+            disabled
+            value="Value"
+            size="medium"
+            type="password"
+            startAdornment={<LockOpen />}
+            endAdornment={<RemoveRedEye />}
+          />
+          <OutlinedInput
+            disabled
             value="Value"
             size="small"
             startAdornment={<LockOpen />}
@@ -1242,6 +1322,227 @@ const DevComponents = () => {
             startAdornment={<LockOpen />}
             endAdornment={<RemoveRedEye />}
           />
+        </Box>
+      </Box>
+
+      <Box id="dropdown" sx={{ scrollMarginTop: 100, width: "100%" }}>
+        <Typography
+          component="div"
+          variant="h3"
+          sx={{ mb: 10, backgroundColor: "green.main", p: 2 }}
+        >
+          Dropdown
+        </Typography>
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Default
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Select
+            label=""
+            value=""
+            sx={{ width: 200 }}
+            size="large"
+            renderValue={
+              selectValue
+                ? undefined
+                : () => (
+                    <Typography sx={{ color: "text.secondary" }}>
+                      Please select
+                    </Typography>
+                  )
+            }
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select label="" value="" sx={{ width: 200 }} size="medium">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select label="" value="" sx={{ width: 200 }} size="small">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </Box>
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Default / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Select
+            disabled
+            label=""
+            value=""
+            sx={{ width: 200 }}
+            size="large"
+            renderValue={
+              selectValue
+                ? undefined
+                : () => (
+                    <Typography sx={{ color: "text.secondary" }}>
+                      Please select
+                    </Typography>
+                  )
+            }
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select disabled label="" value="" sx={{ width: 200 }} size="medium">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select disabled label="" value="" sx={{ width: 200 }} size="small">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Selected
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Select label="" value={10} sx={{ width: 200 }} size="large">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select label="" value={20} sx={{ width: 200 }} size="medium">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select label="" value={30} sx={{ width: 200 }} size="small">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Selected / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Select disabled label="" value={10} sx={{ width: 200 }} size="large">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select
+            disabled
+            label=""
+            value={20}
+            sx={{ width: 200 }}
+            size="medium"
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select disabled label="" value={30} sx={{ width: 200 }} size="small">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Error
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Select error label="" value={10} sx={{ width: 200 }} size="large">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select error label="" value={20} sx={{ width: 200 }} size="medium">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          <Select error label="" value={30} sx={{ width: 200 }} size="small">
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Multiple
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          TBC
         </Box>
       </Box>
 

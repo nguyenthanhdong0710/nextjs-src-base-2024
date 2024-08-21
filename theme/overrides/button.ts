@@ -23,7 +23,7 @@ const Button = () => {
           "&.Mui-disabled": {
             ...(theme.palette.mode == "light" && {
               color: alpha(theme.palette.black, 0.38),
-              borderColor: alpha(theme.palette.black, 0.28),
+              borderColor: alpha(theme.palette.black, 0.12),
             }),
             "&:hover": {
               backgroundColor: "inherit",

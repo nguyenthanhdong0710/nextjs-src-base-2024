@@ -84,7 +84,7 @@ const DefaultPalette = (mode: Palette["mode"]): Palette => {
     },
 
     text: {
-      primary: alpha(mode === "light" ? darkColor : whiteColor, 0.87),
+      primary: mode === "light" ? "#42527D" : alpha(whiteColor, 0.87),
       secondary: alpha(mode === "light" ? darkColor : whiteColor, 0.6),
       disabled: alpha(mode === "light" ? darkColor : whiteColor, 0.38),
     },
