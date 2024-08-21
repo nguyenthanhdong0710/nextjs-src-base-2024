@@ -137,7 +137,7 @@ function MainAppSearchDrawer() {
         <Box
           sx={{
             backgroundColor: "gray.09",
-            borderBottom: `1px solid ${palette.gray["07"]}`,
+            borderBottom: `1px solid ${palette.outline}`,
             px: 5,
             py: 3,
           }}

@@ -1,5 +1,5 @@
 // ** Type Imports
-import { Palette } from "@mui/material";
+import { alpha, Palette } from "@mui/material";
 
 const DefaultPalette = (mode: Palette["mode"]): Palette => {
   // ** Vars
@@ -44,42 +44,57 @@ const DefaultPalette = (mode: Palette["mode"]): Palette => {
       paper: "#000F35",
       default: "#000F35",
     },
+
+    // ** overrides
     // background: {
     //   paper: mode === "light" ? whiteColor : "#30334E",
     //   default: defaultBgColor(),
     // },
     primary: {
-      light: "#9CCA3B",
+      light: "#72B01F",
       main: "#9CCA3B",
-      dark: "#9CCA3B",
+      dark: "#72B01F",
+      contrastText: whiteColor,
+    },
+    error: {
+      light: "#FFA9A9",
+      main: "#FF7070",
+      dark: "#C62828",
+      contrastText: whiteColor,
+    },
+    warning: {
+      light: "#FFD78A",
+      main: "#F3A100",
+      dark: "#EC9C00",
+      contrastText: whiteColor,
+    },
+    info: {
+      light: "#97C7FF",
+      main: "#52A1FF",
+      dark: "#0070CA",
       contrastText: whiteColor,
     },
     secondary: {
-      light: "#E6F2FD",
-      main: "#E6F2FD",
-      dark: "#E6F2FD",
+      light: "#525E7B",
+      main: "#3F4964",
+      dark: "#525E7B",
       contrastText: darkColor,
     },
-    info: {
-      light: "#40CDFA",
-      main: "#26C6F9",
-      dark: "#21AEDB",
-      contrastText: whiteColor,
-    },
+
     text: {
-      primary: `rgba(${mainColor}, 0.87)`,
-      secondary: `rgba(${mainColor}, 0.6)`,
-      disabled: `rgba(${mainColor}, 0.38)`,
+      primary: alpha(whiteColor, 0.87),
+      secondary: alpha(whiteColor, 0.6),
+      disabled: alpha(whiteColor, 0.38),
     },
-    divider: `rgba(${mainColor}, 0.12)`,
+    divider: "#415792", // outline
     action: {
-      active: `rgba(${mainColor}, 0.54)`,
-      hover: `rgba(${mainColor}, 0.05)`,
-      hoverOpacity: 0.05,
-      selected: `rgba(${mainColor}, 0.08)`,
-      disabled: `rgba(${mainColor}, 0.26)`,
-      disabledBackground: `rgba(${mainColor}, 0.12)`,
-      focus: `rgba(${mainColor}, 0.12)`,
+      // active: `rgba(${mainColor}, 0.54)`,
+      // hover: `rgba(${mainColor}, 0.85)`,
+      // hoverOpacity: 0.85,
+      // selected: `rgba(${mainColor}, 0.08)`,
+      disabled: alpha(whiteColor, 0.38),
+      disabledBackground: "#3F4964", // secondary main
+      // focus: `rgba(${mainColor}, 0.12)`,
     },
   } as Palette;
 };

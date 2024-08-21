@@ -1,5 +1,4 @@
 // ** Type Import
-
 import {
   OwnerStateThemeType,
   TypographyOverridesVariant,
@@ -81,6 +80,7 @@ export const fontWeights: Record<
     fontWeight: 300,
   },
 };
+
 const typography = () => {
   const variantMapping: { [K in TypographyOverridesVariant]?: string } = {};
   const variants = Object.entries(fontSizes).flatMap(([fsKey, fsVal]) =>

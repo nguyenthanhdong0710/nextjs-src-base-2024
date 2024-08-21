@@ -15,61 +15,7 @@ import {
 } from "@mui/material";
 import { getTextContrast } from "@/utils/get-text-contrast";
 import { fontSizes, fontWeights } from "@/theme/overrides/typography";
-
-const ColorBadge = ({
-  color,
-  colorName,
-}: {
-  color: string;
-  colorName: string;
-}) => {
-  return (
-    <Box
-      sx={{
-        backgroundColor: color,
-        border: "1px solid black",
-        borderColor: "outline",
-        borderRadius: "5px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: 100,
-        width: 160,
-        fontSize: 11,
-        gap: 2,
-      }}
-    >
-      <Typography variant="12/Medium" sx={{ color: getTextContrast(color) }}>
-        {colorName}
-      </Typography>
-      <Typography
-        variant="12/Light"
-        sx={{ color: getTextContrast(color), textTransform: "uppercase" }}
-      >
-        {color}
-      </Typography>
-    </Box>
-  );
-};
-
-const FaviconBox = ({ path }: { path: string }) => {
-  return (
-    <Box
-      sx={{
-        borderRadius: 1,
-        padding: 4,
-        border: "1px dashed black",
-        borderColor: "green.main",
-      }}
-    >
-      <Typography component="div" color="primary" sx={{ mb: 4 }}>
-        {path}
-      </Typography>
-      <Box component="img" alt={path} src={path} />
-    </Box>
-  );
-};
+import ColorBadge from "./_components/ColorBadge";
 
 const DevComponents = () => {
   const { palette, breakpoints } = useTheme();
@@ -87,43 +33,6 @@ const DevComponents = () => {
         p: 20,
       }}
     >
-      <Box id="typography" sx={{ scrollMarginTop: 100, width: "100%" }}>
-        <Typography
-          component="div"
-          variant="h3"
-          sx={{ mb: 10, backgroundColor: "green.main", p: 2 }}
-        >
-          Typography
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "start",
-            alignItems: "start",
-            flexWrap: "wrap",
-            gap: 10,
-            borderRadius: 1,
-            padding: 4,
-            border: "1px dashed black",
-            borderColor: "green.main",
-          }}
-        >
-          {Object.keys(fontSizes)
-            .reverse()
-            .flatMap((fsKey) =>
-              Object.keys(fontWeights).map((fwKey) => (
-                <Typography
-                  key={`${fsKey}/${fwKey}`}
-                  color="primary"
-                  variant={`${fsKey}/${fwKey}` as any}
-                  sx={{ flexBasis: 1 / 4 }}
-                >
-                  {`${fsKey}/${fwKey}`}
-                </Typography>
-              )),
-            )}
-        </Box>
-      </Box>
       <Box id="colors" sx={{ scrollMarginTop: 100, width: "100%" }}>
         <Typography
           component="div"
@@ -318,6 +227,717 @@ const DevComponents = () => {
               />
             </Box>
           </div>
+        </Box>
+      </Box>
+      <Box id="typography" sx={{ scrollMarginTop: 100, width: "100%" }}>
+        <Typography
+          component="div"
+          variant="h3"
+          sx={{ mb: 10, backgroundColor: "green.main", p: 2 }}
+        >
+          Typography
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            flexWrap: "wrap",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          {Object.keys(fontSizes)
+            .reverse()
+            .flatMap((fsKey) =>
+              Object.keys(fontWeights).map((fwKey) => (
+                <Typography
+                  key={`${fsKey}/${fwKey}`}
+                  color="primary"
+                  variant={`${fsKey}/${fwKey}` as any}
+                  sx={{ flexBasis: 1 / 4 }}
+                >
+                  {`${fsKey}/${fwKey}`}
+                </Typography>
+              )),
+            )}
+        </Box>
+      </Box>
+      <Box id="button-contained" sx={{ scrollMarginTop: 100, width: "100%" }}>
+        <Typography
+          component="div"
+          variant="h3"
+          sx={{ mb: 10, backgroundColor: "green.main", p: 2 }}
+        >
+          Button/Contained
+        </Typography>
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Large
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="contained" size="large" color="primary">
+            Large
+          </Button>
+
+          <Button variant="contained" size="large" color="error">
+            Large
+          </Button>
+
+          <Button variant="contained" size="large" color="warning">
+            Large
+          </Button>
+
+          <Button variant="contained" size="large" color="info">
+            Large
+          </Button>
+
+          <Button variant="contained" size="large" color="secondary">
+            Large
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Large / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="contained" size="large" color="primary" disabled>
+            Large
+          </Button>
+
+          <Button variant="contained" size="large" color="error" disabled>
+            Large
+          </Button>
+
+          <Button variant="contained" size="large" color="warning" disabled>
+            Large
+          </Button>
+
+          <Button variant="contained" size="large" color="info" disabled>
+            Large
+          </Button>
+
+          <Button variant="contained" size="large" color="secondary" disabled>
+            Large
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Medium
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="contained" size="medium" color="primary">
+            Medium
+          </Button>
+
+          <Button variant="contained" size="medium" color="error">
+            Medium
+          </Button>
+
+          <Button variant="contained" size="medium" color="warning">
+            Medium
+          </Button>
+
+          <Button variant="contained" size="medium" color="info">
+            Medium
+          </Button>
+
+          <Button variant="contained" size="medium" color="secondary">
+            Medium
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Medium / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="contained" size="medium" color="primary" disabled>
+            Medium
+          </Button>
+
+          <Button variant="contained" size="medium" color="error" disabled>
+            Medium
+          </Button>
+
+          <Button variant="contained" size="medium" color="warning" disabled>
+            Medium
+          </Button>
+
+          <Button variant="contained" size="medium" color="info" disabled>
+            Medium
+          </Button>
+
+          <Button variant="contained" size="medium" color="secondary" disabled>
+            Medium
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Small
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="contained" size="small" color="primary">
+            Small
+          </Button>
+
+          <Button variant="contained" size="small" color="error">
+            Small
+          </Button>
+
+          <Button variant="contained" size="small" color="warning">
+            Small
+          </Button>
+
+          <Button variant="contained" size="small" color="info">
+            Small
+          </Button>
+
+          <Button variant="contained" size="small" color="secondary">
+            Small
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Small / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="contained" size="small" color="primary" disabled>
+            Small
+          </Button>
+
+          <Button variant="contained" size="small" color="error" disabled>
+            Small
+          </Button>
+
+          <Button variant="contained" size="small" color="warning" disabled>
+            Small
+          </Button>
+
+          <Button variant="contained" size="small" color="info" disabled>
+            Small
+          </Button>
+
+          <Button variant="contained" size="small" color="secondary" disabled>
+            Small
+          </Button>
+        </Box>
+      </Box>
+
+      <Box id="button-outlined" sx={{ scrollMarginTop: 100, width: "100%" }}>
+        <Typography
+          component="div"
+          variant="h3"
+          sx={{ mb: 10, backgroundColor: "green.main", p: 2 }}
+        >
+          Button/Outlined
+        </Typography>
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Large
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="outlined" size="large" color="primary">
+            Large
+          </Button>
+
+          <Button variant="outlined" size="large" color="error">
+            Large
+          </Button>
+
+          <Button variant="outlined" size="large" color="warning">
+            Large
+          </Button>
+
+          <Button variant="outlined" size="large" color="info">
+            Large
+          </Button>
+
+          <Button variant="outlined" size="large" color="secondary">
+            Large
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Large / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="outlined" size="large" color="primary" disabled>
+            Large
+          </Button>
+
+          <Button variant="outlined" size="large" color="error" disabled>
+            Large
+          </Button>
+
+          <Button variant="outlined" size="large" color="warning" disabled>
+            Large
+          </Button>
+
+          <Button variant="outlined" size="large" color="info" disabled>
+            Large
+          </Button>
+
+          <Button variant="outlined" size="large" color="secondary" disabled>
+            Large
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Medium
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="outlined" size="medium" color="primary">
+            Medium
+          </Button>
+
+          <Button variant="outlined" size="medium" color="error">
+            Medium
+          </Button>
+
+          <Button variant="outlined" size="medium" color="warning">
+            Medium
+          </Button>
+
+          <Button variant="outlined" size="medium" color="info">
+            Medium
+          </Button>
+
+          <Button variant="outlined" size="medium" color="secondary">
+            Medium
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Medium / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="outlined" size="medium" color="primary" disabled>
+            Medium
+          </Button>
+
+          <Button variant="outlined" size="medium" color="error" disabled>
+            Medium
+          </Button>
+
+          <Button variant="outlined" size="medium" color="warning" disabled>
+            Medium
+          </Button>
+
+          <Button variant="outlined" size="medium" color="info" disabled>
+            Medium
+          </Button>
+
+          <Button variant="outlined" size="medium" color="secondary" disabled>
+            Medium
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Small
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="outlined" size="small" color="primary">
+            Small
+          </Button>
+
+          <Button variant="outlined" size="small" color="error">
+            Small
+          </Button>
+
+          <Button variant="outlined" size="small" color="warning">
+            Small
+          </Button>
+
+          <Button variant="outlined" size="small" color="info">
+            Small
+          </Button>
+
+          <Button variant="outlined" size="small" color="secondary">
+            Small
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Small / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="outlined" size="small" color="primary" disabled>
+            Small
+          </Button>
+
+          <Button variant="outlined" size="small" color="error" disabled>
+            Small
+          </Button>
+
+          <Button variant="outlined" size="small" color="warning" disabled>
+            Small
+          </Button>
+
+          <Button variant="outlined" size="small" color="info" disabled>
+            Small
+          </Button>
+
+          <Button variant="outlined" size="small" color="secondary" disabled>
+            Small
+          </Button>
+        </Box>
+      </Box>
+
+      <Box id="button-text" sx={{ scrollMarginTop: 100, width: "100%" }}>
+        <Typography
+          component="div"
+          variant="h3"
+          sx={{ mb: 10, backgroundColor: "green.main", p: 2 }}
+        >
+          Button/Text
+        </Typography>
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Large
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="text" size="large" color="primary">
+            Large
+          </Button>
+
+          <Button variant="text" size="large" color="error">
+            Large
+          </Button>
+
+          <Button variant="text" size="large" color="warning">
+            Large
+          </Button>
+
+          <Button variant="text" size="large" color="info">
+            Large
+          </Button>
+
+          <Button variant="text" size="large" color="secondary">
+            Large
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Large / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="text" size="large" color="primary" disabled>
+            Large
+          </Button>
+
+          <Button variant="text" size="large" color="error" disabled>
+            Large
+          </Button>
+
+          <Button variant="text" size="large" color="warning" disabled>
+            Large
+          </Button>
+
+          <Button variant="text" size="large" color="info" disabled>
+            Large
+          </Button>
+
+          <Button variant="text" size="large" color="secondary" disabled>
+            Large
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Medium
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="text" size="medium" color="primary">
+            Medium
+          </Button>
+
+          <Button variant="text" size="medium" color="error">
+            Medium
+          </Button>
+
+          <Button variant="text" size="medium" color="warning">
+            Medium
+          </Button>
+
+          <Button variant="text" size="medium" color="info">
+            Medium
+          </Button>
+
+          <Button variant="text" size="medium" color="secondary">
+            Medium
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Medium / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="text" size="medium" color="primary" disabled>
+            Medium
+          </Button>
+
+          <Button variant="text" size="medium" color="error" disabled>
+            Medium
+          </Button>
+
+          <Button variant="text" size="medium" color="warning" disabled>
+            Medium
+          </Button>
+
+          <Button variant="text" size="medium" color="info" disabled>
+            Medium
+          </Button>
+
+          <Button variant="text" size="medium" color="secondary" disabled>
+            Medium
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Small
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="text" size="small" color="primary">
+            Small
+          </Button>
+
+          <Button variant="text" size="small" color="error">
+            Small
+          </Button>
+
+          <Button variant="text" size="small" color="warning">
+            Small
+          </Button>
+
+          <Button variant="text" size="small" color="info">
+            Small
+          </Button>
+
+          <Button variant="text" size="small" color="secondary">
+            Small
+          </Button>
+        </Box>
+
+        <Typography variant="h6" color="primary" sx={{ mt: 4 }}>
+          Small / Disabled
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "start",
+            gap: 10,
+            borderRadius: 1,
+            padding: 4,
+            border: "1px dashed black",
+            borderColor: "green.main",
+          }}
+        >
+          <Button variant="text" size="small" color="primary" disabled>
+            Small
+          </Button>
+
+          <Button variant="text" size="small" color="error" disabled>
+            Small
+          </Button>
+
+          <Button variant="text" size="small" color="warning" disabled>
+            Small
+          </Button>
+
+          <Button variant="text" size="small" color="info" disabled>
+            Small
+          </Button>
+
+          <Button variant="text" size="small" color="secondary" disabled>
+            Small
+          </Button>
         </Box>
       </Box>
       {
